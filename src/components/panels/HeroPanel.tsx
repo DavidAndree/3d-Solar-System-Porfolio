@@ -12,10 +12,10 @@ export default function HeroPanel({ visible }: HeroPanelProps) {
 
         <div className="mt-8">
           <h1 className="text-4xl font-bold tracking-tight text-white font-sans">
-            ALEX CHEN
+            David Alvarado
           </h1>
           <p className="text-base text-cyan-400 mt-2 font-mono">
-            Full-Stack Engineer & Creative Technologist
+            CS Student & Creative Engineer
           </p>
         </div>
 
@@ -29,21 +29,21 @@ export default function HeroPanel({ visible }: HeroPanelProps) {
           </div>
           <div className="status-row">
             <span className="status-label">LOCATION</span>
-            <span className="status-value">SAN FRANCISCO, CA</span>
+            <span className="status-value">KALAMAZOO, MI</span>
           </div>
           <div className="status-row">
             <span className="status-label">SPECIALIZATION</span>
-            <span className="status-value">WEB / 3D / AI</span>
+            <span className="status-value">SOFTWARE / ML / AI</span>
           </div>
           <div className="status-row">
             <span className="status-label">UPTIME</span>
-            <span className="status-value">8+ YEARS</span>
+            <span className="status-value">3+ YEARS</span>
           </div>
         </div>
 
         <div className="mt-8 flex gap-3">
           <a href="mailto:hello@alexchen.dev" className="hud-button">
-            ESTABLISH LINK
+            EMAIL ME
           </a>
           <a href="#" className="hud-button-outline">
             DOWNLOAD CV
