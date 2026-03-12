@@ -177,28 +177,28 @@ export const gallery = [
 
 export const experience = [
   {
-    role: 'Senior Full-Stack Engineer',
-    company: 'Nebula Systems',
-    period: '2022 - PRESENT',
-    description: 'Leading development of real-time 3D web applications and AI-powered creative tools.',
+    role: '???',
+    company: '?',
+    period: '20?? - PRESENT',
+    description: 'Only time will decide.',
   },
   {
-    role: 'Lead Frontend Engineer',
-    company: 'Quantum Labs',
-    period: '2020 - 2022',
-    description: 'Built high-performance trading interfaces handling millions of daily transactions.',
+    role: 'Computer Support Technician',
+    company: 'Kalamazoo Valley Community College',
+    period: '2024 - PRESENT',
+    description: 'Maintained 500+ systems and automated IT workflows using Power Automate to ensure high uptime lab operations and rapid technical resolution. Front Desk + Ticketing Systems',
   },
   {
-    role: 'Software Engineer',
-    company: 'Stellar Corp',
-    period: '2018 - 2020',
-    description: 'Developed cross-platform applications and designed microservices architecture.',
+    role: 'Founder',
+    company: 'XDA Media',
+    period: '2024 - 2026',
+    description: 'B2B Lead Gen Automation for Jeweler's & Wacth Dealers',
   },
   {
-    role: 'Junior Developer',
-    company: 'Orbit Studios',
-    period: '2016 - 2018',
-    description: 'Full-stack web development for creative agency clients across multiple verticals.',
+    role: 'Computer Information Systems Tutor',
+    company: 'Kalamazoo Valley Community College',
+    period: '2023 - 2024',
+    description: 'Simplified complex CIS algorithms and programming concepts into clear, actionable explanations for students.',
   },
 ];
 
