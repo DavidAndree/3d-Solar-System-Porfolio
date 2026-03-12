@@ -48,7 +48,7 @@ export default function FourthDimensionPanel({ visible }: FourthDimensionPanelPr
 
         <div className="mt-5">
           <p className="text-xs text-gray-400 leading-relaxed">
-           Code for Tresseract this here
+           Code for Tresseract this here:
           </p>
         </div>
 
