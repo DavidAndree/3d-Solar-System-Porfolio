@@ -13,13 +13,10 @@ export default function AboutPanel({ visible }: AboutPanelProps) {
         <div className="mt-5 flex gap-4">
           <div className="profile-image-wrapper flex-shrink-0">
             <img
-              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300"
+              src="/Screenshot_2026-03-12_at_3.23.07_PM.png"
               alt="David Alvardo"
               className="w-24 h-24 rounded-sm object-cover border border-white/10"
             />
-            <div className="mt-1.5 text-center">
-              <span className="text-[7px] font-mono tracking-widest text-gray-600">REPLACE ME</span>
-            </div>
           </div>
 
           <div className="space-y-3 text-gray-300 text-sm leading-relaxed font-sans">
