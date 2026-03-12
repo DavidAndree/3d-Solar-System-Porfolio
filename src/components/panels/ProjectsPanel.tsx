@@ -49,7 +49,7 @@ export default function ProjectsPanel({ visible }: ProjectsPanelProps) {
         </div>
 
         <a
-          href="https://github.com"
+          href="https://github.com/DavidAndree"
           target="_blank"
           rel="noopener noreferrer"
           className="hud-button mt-6 inline-flex items-center gap-2"
