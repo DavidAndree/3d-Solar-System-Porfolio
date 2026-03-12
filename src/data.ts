@@ -97,50 +97,26 @@ export const planets: PlanetConfig[] = [
   },
 ];
 
-// export const skillCategories = [
-//   {
-//     category: 'SYSTEMS & LOW-LEVEL',
-//     items: ['C', 'C++', 'Assembly', 'Linux', 'Terminal/Bash'],
-//   },
-//   {
-//     category: 'CORE LANGUAGES',
-//     items: ['Javascript', 'Python', 'Go', 'Swift','Waf'],
-//   },
-//   {
-//     category: 'BACKEND & DATABASE',
-//     items: ['Docker', 'Django', 'Supabase', 'PostgresSQL', 'MongoDB'],
-//   },
-//   {
-//     category: 'CREATIVE',
-//     items: ['Xcode','Slack','OpenCV'],
-//   },
-// ];
-
 export const skillCategories = [
   {
     category: 'SYSTEMS & LOW-LEVEL',
-    // Close to the metal (Mercury)
-    items: ['C', 'C++', 'Assembly', 'Linux OS', 'Terminal/Bash', 'Git'],
-  },
-  {
-    category: 'CORE LANGUAGES',
     // The lifeblood (Earth)
-    items: ['JavaScript', 'Python', 'Go', 'Swift', 'Waf'],
+    items: ['C', 'C++', 'Assembly', 'Python', 'Git','JavaScript', 'Linux', 'Swift', 'Typescript'],
   },
   {
     category: 'FRONTEND & UI',
     // The surface visuals (Venus)
-    items: ['React', 'Web Development', 'PySimpleGUI'],
+    items: ['React', 'Web Dev', 'GUIs'],
   },
   {
     category: 'BACKEND & DATABASE',
     // The infrastructure (Mars)
-    items: ['Django', 'Flask', 'API Integration', 'Docker', 'Supabase', 'PostgreSQL', 'MongoDB'],
+    items: ['Django', 'Flask', 'API Integration', 'Docker', 'Supabase', 'PostgreSQL',     'MongoDB'],
   },
   {
-    category: 'AUTOMATION & AI',
+    category: 'AUTOMATION & AI ',
     // Complex systems (Jupiter)
-    items: ['N8N', 'Make (Integromat)', 'OpenCV'],
+    items: ['N8N', 'Make (Integromat)', 'OpenCV', 'OpenClaw', 'TensorFlow', 'PyTorch'],
   },
   {
     category: 'LEADERSHIP & OPS',
@@ -148,9 +124,9 @@ export const skillCategories = [
     items: ['Team Leadership', 'Team Collaboration', 'Start-up Operations', 'Sales Skills'],
   },
   {
-    category: 'COMMUNICATION & TOOLS',
+    category: 'REAL LIFE',
     // The outer reaches (Uranus/Neptune)
-    items: ['Effective Public Speaker', 'Problem-solving Aptitude', 'Slack', 'Xcode'],
+    items: ['Effective Public Speaker', 'Problem-solving Aptitude', 'Adaptive'],
   },
 ];
 
