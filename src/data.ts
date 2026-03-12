@@ -224,9 +224,9 @@ export const testimonials = [
     text: 'Does stuff',
   },
   {
-    name: 'Dr. Elena Vasquez',
-    role: 'Director, MIT Media Lab',
-    text: 'A rare combination of engineering rigor and creative vision. Their research work continues to push boundaries.',
+    name: 'David Alvarado',
+    role: 'CEO, Life',
+    text: 'En Dios todo lo puedo',
   },
 ];
 
