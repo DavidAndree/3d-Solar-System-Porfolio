@@ -192,7 +192,7 @@ export const experience = [
     role: 'Founder',
     company: 'XDA Media',
     period: '2024 - 2026',
-    description: 'B2B Lead Gen Automation for Jeweler's & Wacth Dealers',
+    description: 'B2B Lead Gen Automation for Jewelers and Watch Dealers',
   },
   {
     role: 'Computer Information Systems Tutor',
