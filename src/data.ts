@@ -216,17 +216,17 @@ export const testimonials = [
   {
     name: 'Jia Seed ',
     role: 'Founder, Jam',
-    text: "One of the most talented engineers I've worked with. Combines deep technical knowledge with an extraordinary eye for design.",
+    text: "Bread🍞.",
   },
   {
     name: 'Eliseo Guerra',
     role: 'Veteran/ CEO @ ComputerLab',
-    text: 'Does stuff',
+    text: 'Does stuff.',
   },
   {
     name: 'David Alvarado',
     role: 'CEO, Life',
-    text: 'En Dios todo lo puedo',
+    text: 'En Dios todo lo puedo.',
   },
 ];
 
