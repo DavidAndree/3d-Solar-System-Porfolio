@@ -222,10 +222,10 @@ export const testimonials = [
 
 export const writings = [
   {
-    title: 'The Geometry of Interaction',
-    category: 'ESSAY',
-    date: '2024.03',
-    excerpt: 'Exploring how spatial computing changes the way we think about user interfaces.',
+    title: 'Jia Seed linkedin.com/in/audrey-chen-tech/',
+    category: 'Founder @ Jam',
+    date: '2026.03',
+    excerpt: 'Bread',
   },
   {
     title: 'WebGL Performance Patterns',
