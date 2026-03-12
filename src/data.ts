@@ -154,24 +154,34 @@ export const projects = [
 
 export const gallery = [
   {
-    title: 'Nebula Dashboard',
-    category: 'UI/UX',
-    image: 'https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'OBD-II Diagnostics',
+    category: 'Hardware',
+    image: '/IMG_0432_2.JPG',
+    aspect: 'portrait',
   },
   {
-    title: 'Crystal Interface',
-    category: 'Web Design',
-    image: 'https://images.pexels.com/photos/2156/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&w=600',
+    title: 'Live Telemetry App',
+    category: 'Mobile App',
+    image: '/IMG_0444.PNG',
+    aspect: 'phone',
   },
   {
-    title: 'Aurora Concept',
-    category: 'Brand Identity',
-    image: 'https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'Service Marketplace',
+    category: 'Mobile App',
+    image: '/IMG_0493.PNG',
+    aspect: 'phone',
   },
   {
-    title: 'Deep Field',
-    category: 'Data Viz',
-    image: 'https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'TARS Bot',
+    category: 'AI / Chatbot',
+    image: '/IMG_1131_2.PNG',
+    aspect: 'phone',
+  },
+  {
+    title: 'TARS Profile',
+    category: 'AI / Chatbot',
+    image: '/IMG_1132_2.jpg',
+    aspect: 'landscape',
   },
 ];
 
