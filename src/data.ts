@@ -116,7 +116,7 @@ export const skillCategories = [
   {
     category: 'AUTOMATION & AI ',
     // Complex systems (Jupiter)
-    items: ['N8N', 'Make (Integromat)', 'OpenCV', 'OpenClaw', 'TensorFlow', 'PyTorch'],
+    items: ['N8N', 'OpenCV', 'OpenClaw', 'TensorFlow', 'PyTorch'],
   },
   {
     category: 'LEADERSHIP & OPS',
@@ -126,7 +126,7 @@ export const skillCategories = [
   {
     category: 'REAL LIFE',
     // The outer reaches (Uranus/Neptune)
-    items: ['Effective Public Speaker', 'Problem-solving Aptitude', 'Adaptive'],
+    items: ['Effective Public Speaker', 'Problem-solving Aptitude', 'Adaptive Learner'],
   },
 ];
 
