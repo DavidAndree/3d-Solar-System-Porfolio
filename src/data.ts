@@ -222,16 +222,16 @@ export const testimonials = [
 
 export const writings = [
   {
-    title: 'Jia Seed',
+    title: 'Jia Seed Founder @ Jam',
     category: 'linkedin.com/in/audrey-chen-tech',
     date: '2026.03',
-    excerpt: 'Bread',
+    excerpt: 'Bread 🍞',
   },
   {
-    title: 'WebGL Performance Patterns',
+    title: 'Eliseo Guerra CEO @ ComputerLab KVCC',
     category: 'TECHNICAL',
     date: '2024.01',
-    excerpt: 'Deep dive into optimization techniques for complex 3D scenes in the browser.',
+    excerpt: 'He does it support',
   },
   {
     title: 'On Digital Craftsmanship',
