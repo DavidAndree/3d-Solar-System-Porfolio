@@ -19,8 +19,8 @@ export default function AboutPanel({ visible }: AboutPanelProps) {
             by roles at startups (myself) and ideas that I had and made them into real products.
           </p>
           <p>
-            When I'm not coding, you'll find me exploring astrophotography,
-            contributing to open-source projects, or experimenting with generative art.
+            When I'm not coding, you'll find me in some capacity getting closer to my goals.
+            Also I am in insane shape.
           </p>
         </div>
 
