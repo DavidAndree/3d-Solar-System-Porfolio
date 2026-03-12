@@ -42,7 +42,7 @@ export default function HeroPanel({ visible }: HeroPanelProps) {
         </div>
 
         <div className="mt-8 flex gap-3">
-          <a href="mailto:hello@alexchen.dev" className="hud-button">
+          <a href="mailto:davidalvaradoc0106@gmail.com" className="hud-button">
             EMAIL ME
           </a>
           <a href="#" className="hud-button-outline">
