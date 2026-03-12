@@ -220,29 +220,41 @@ export const testimonials = [
   },
 ];
 
-export const writings = [
+export const posts = [
   {
-    title: 'Jia Seed Founder @ Jam',
-    category: 'linkedin.com/in/audrey-chen-tech',
+    image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=600',
+    caption: 'Late night coding sessions building something new',
+    tag: 'DEV',
     date: '2026.03',
-    excerpt: 'Bread 🍞',
   },
   {
-    title: 'Eliseo Guerra CEO @ ComputerLab KVCC',
-    category: 'TECHNICAL',
-    date: '2024.01',
-    excerpt: 'He does it support',
+    image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=600',
+    caption: 'Working on a new automation pipeline',
+    tag: 'BUILD',
+    date: '2026.02',
   },
   {
-    title: 'On Digital Craftsmanship',
-    category: 'ESSAY',
-    date: '2023.11',
-    excerpt: 'Why attention to detail matters more than ever in an age of automated code.',
+    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
+    caption: 'Exploring new tools and frameworks',
+    tag: 'LEARN',
+    date: '2026.01',
   },
   {
-    title: 'Building Worlds with Three.js',
-    category: 'TUTORIAL',
-    date: '2023.08',
-    excerpt: 'A comprehensive guide to creating immersive 3D experiences on the web.',
+    image: 'https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600',
+    caption: 'Fresh perspective from the outdoors',
+    tag: 'LIFE',
+    date: '2025.12',
+  },
+  {
+    image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=600',
+    caption: 'Pair programming and whiteboard sessions',
+    tag: 'TEAM',
+    date: '2025.11',
+  },
+  {
+    image: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600',
+    caption: 'Deep dive into systems programming',
+    tag: 'DEV',
+    date: '2025.10',
   },
 ];
