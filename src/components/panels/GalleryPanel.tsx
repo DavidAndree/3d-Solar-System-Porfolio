@@ -13,8 +13,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
         </div>
 
         <p className="text-xs text-gray-500 mt-4 font-mono leading-relaxed">
-          Design artifacts and creative explorations. Selected works spanning
-          UI/UX, brand systems, and data visualization.
+          Some of my projects and interest here. Me just sitting in my room making "cool" stuff and sharing it with the world. This is like my "gallery" of things that I find interesting and want to share. 
         </p>
 
         <div className="mt-6 grid grid-cols-2 gap-3">

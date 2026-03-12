@@ -12,15 +12,11 @@ export default function AboutPanel({ visible }: AboutPanelProps) {
 
         <div className="mt-6 space-y-4 text-gray-300 text-sm leading-relaxed font-sans">
           <p>
-            Full-stack engineer with 8+ years of experience building digital
-            experiences at the intersection of design and technology. I specialize
-            in creating immersive web applications, real-time systems, and 3D
-            visualizations.
+            Computer Science student pationate about software development, machine learning, AI, math, and physics. I'm David Alvardo btw and this is like my little "space" to share my projects, repos, things about me, experience, to amaze my employers.
           </p>
           <p>
-            My journey started with a B.S. in Computer Science from MIT, followed
-            by roles at startups and Fortune 500 companies where I led teams
-            building products used by millions.
+            My journey started with a B.S. in Computer Science from Western Michigan University, followed
+            by roles at startups (myself) and ideas that I had and made them into real products.
           </p>
           <p>
             When I'm not coding, you'll find me exploring astrophotography,

@@ -5,9 +5,9 @@ interface ContactPanelProps {
 }
 
 const links = [
-  { label: 'EMAIL', value: 'hello@alexchen.dev', href: 'mailto:hello@alexchen.dev' },
-  { label: 'GITHUB', value: 'github.com/alexchen', href: 'https://github.com' },
-  { label: 'LINKEDIN', value: 'linkedin.com/in/alexchen', href: 'https://linkedin.com' },
+  { label: 'EMAIL', value: 'davidalvaradoc0106@gmail.com', href: 'mailto:davidalvaradoc0106@gmail.com' },
+  { label: 'GITHUB', value: 'github.com/DavidAndree', href: 'https://github.com/DavidAndree' },
+  { label: 'LINKEDIN', value: 'linkedin.com/in/davidalvaradocontreras', href: 'https://linkedin.com/in/davidalvaradocontreras' },
   { label: 'TWITTER', value: '@alexchen_dev', href: 'https://twitter.com' },
 ];
 
