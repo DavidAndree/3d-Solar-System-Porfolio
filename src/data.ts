@@ -99,7 +99,7 @@ export const planets: PlanetConfig[] = [
 
 export const skillCategories = [
   {
-    category: 'SYSTEMS & LOW-LEVEL',
+    category: 'SYSTEMS & LANGUAGES',
     // The lifeblood (Earth)
     items: ['C', 'C++', 'Assembly', 'Python', 'Git','JavaScript', 'Linux', 'Swift', 'Typescript'],
   },
