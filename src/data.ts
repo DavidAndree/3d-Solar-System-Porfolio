@@ -186,13 +186,13 @@ export const experience = [
     role: 'Computer Support Technician',
     company: 'Kalamazoo Valley Community College',
     period: '2024 - PRESENT',
-    description: 'Maintained 500+ systems and automated IT workflows using Power Automate to ensure high uptime lab operations and rapid technical resolution. Front Desk + Ticketing Systems',
+    description: 'Maintained 500+ systems and automated IT workflows using Power Automate to ensure high uptime lab operations and rapid technical resolution. Front Desk + Ticketing Systems.',
   },
   {
     role: 'Founder',
     company: 'XDA Media',
     period: '2024 - 2026',
-    description: 'B2B Lead Gen Automation for Jewelers and Watch Dealers',
+    description: 'B2B Lead Gen Automation for Jewelers and Watch Dealers.',
   },
   {
     role: 'Computer Information Systems Tutor',
