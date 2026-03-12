@@ -8,7 +8,7 @@ const links = [
   { label: 'EMAIL', value: 'davidalvaradoc0106@gmail.com', href: 'mailto:davidalvaradoc0106@gmail.com' },
   { label: 'GITHUB', value: 'github.com/DavidAndree', href: 'https://github.com/DavidAndree' },
   { label: 'LINKEDIN', value: 'linkedin.com/in/davidalvaradocontreras', href: 'https://linkedin.com/in/davidalvaradocontreras' },
-  { label: 'TWITTER', value: '@alexchen_dev', href: 'https://twitter.com' },
+  { label: 'HIMALAYAS', value: '@davidalvarado', href: 'https://himalayas.app/@davidalvarado' },
 ];
 
 export default function ContactPanel({ visible }: ContactPanelProps) {
