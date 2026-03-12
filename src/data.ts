@@ -204,14 +204,14 @@ export const experience = [
 
 export const testimonials = [
   {
-    name: 'Sarah Mitchell',
-    role: 'CTO, Nebula Systems',
+    name: 'Jia Seed ',
+    role: 'Founder, Jam',
     text: "One of the most talented engineers I've worked with. Combines deep technical knowledge with an extraordinary eye for design.",
   },
   {
-    name: 'James Park',
-    role: 'VP Engineering, Quantum Labs',
-    text: 'Transformed our entire frontend architecture and mentored the team to deliver exceptional, performant results.',
+    name: 'Eliseo Guerra',
+    role: 'Veteran/ CEO @ ComputerLab',
+    text: 'Does stuff',
   },
   {
     name: 'Dr. Elena Vasquez',
