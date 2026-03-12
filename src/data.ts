@@ -222,8 +222,8 @@ export const testimonials = [
 
 export const writings = [
   {
-    title: 'Jia Seed,
-    category: 'linkedin.com/in/audrey-chen-tech,
+    title: 'Jia Seed',
+    category: 'linkedin.com/in/audrey-chen-tech',
     date: '2026.03',
     excerpt: 'Bread',
   },
