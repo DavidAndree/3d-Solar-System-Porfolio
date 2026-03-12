@@ -48,11 +48,7 @@ export default function FourthDimensionPanel({ visible }: FourthDimensionPanelPr
 
         <div className="mt-5">
           <p className="text-xs text-gray-400 leading-relaxed">
-            Beyond the event horizon, the fabric of spacetime folds upon itself.
-            A four-dimensional being would perceive our entire timeline simultaneously --
-            birth to death rendered as a static sculpture in space. The tesseract above
-            is a shadow of this reality: a 4D object projected into our limited
-            3D perception, rotating through dimensions we cannot directly observe.
+           Code for Tresseract this here
           </p>
         </div>
 
