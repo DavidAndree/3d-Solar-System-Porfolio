@@ -39,7 +39,7 @@ export default function CameraController({ focusTarget }: CameraControllerProps)
       } else if (focusTarget === 'blackhole') {
         const bhPos = planetPositions['blackhole'];
         if (bhPos) {
-          targetPos.current.set(bhPos.x, bhPos.y + 1.8, bhPos.z + 4.5);
+          targetPos.current.set(bhPos.x + 5, bhPos.y + 6, bhPos.z + 22);
           targetLookAt.current.copy(bhPos);
         }
       } else {
@@ -82,7 +82,7 @@ export default function CameraController({ focusTarget }: CameraControllerProps)
       autoRotate={!locked}
       autoRotateSpeed={0.3}
       minDistance={3}
-      maxDistance={200}
+      maxDistance={400}
       maxPolarAngle={Math.PI * 0.48}
       minPolarAngle={Math.PI * 0.08}
       enablePan
