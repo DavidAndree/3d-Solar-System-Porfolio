@@ -119,14 +119,9 @@ export const skillCategories = [
     items: ['N8N', 'OpenCV', 'OpenClaw', 'TensorFlow', 'PyTorch'],
   },
   {
-    category: 'LEADERSHIP & OPS',
-    // The governing forces (Saturn)
-    items: ['Team Leadership', 'Team Collaboration', 'Start-up Operations', 'Sales Skills'],
-  },
-  {
     category: 'REAL LIFE',
-    // The outer reaches (Uranus/Neptune)
-    items: ['Effective Public Speaker', 'Problem-solving Aptitude', 'Adaptive Learner'],
+    // The governing forces (Saturn)
+    items: ['Team Leadership', 'Team Collaboration', 'Start-up Operations', 'Sales Skills','Effective Public Speaker', 'Problem-solving Aptitude', 'Adaptive Learner'],
   },
 ];
 
