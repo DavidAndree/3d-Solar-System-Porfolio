@@ -97,22 +97,60 @@ export const planets: PlanetConfig[] = [
   },
 ];
 
+// export const skillCategories = [
+//   {
+//     category: 'SYSTEMS & LOW-LEVEL',
+//     items: ['C', 'C++', 'Assembly', 'Linux', 'Terminal/Bash'],
+//   },
+//   {
+//     category: 'CORE LANGUAGES',
+//     items: ['Javascript', 'Python', 'Go', 'Swift','Waf'],
+//   },
+//   {
+//     category: 'BACKEND & DATABASE',
+//     items: ['Docker', 'Django', 'Supabase', 'PostgresSQL', 'MongoDB'],
+//   },
+//   {
+//     category: 'CREATIVE',
+//     items: ['Xcode','Slack','OpenCV'],
+//   },
+// ];
+
 export const skillCategories = [
   {
-    category: 'FRONTEND',
-    items: ['React', 'TypeScript', 'Next.js', 'Three.js', 'Tailwind CSS', 'Vue.js'],
+    category: 'SYSTEMS & LOW-LEVEL',
+    // Close to the metal (Mercury)
+    items: ['C', 'C++', 'Assembly', 'Linux OS', 'Terminal/Bash', 'Git'],
   },
   {
-    category: 'BACKEND',
-    items: ['Node.js', 'Python', 'Go', 'PostgreSQL', 'Redis', 'GraphQL'],
+    category: 'CORE LANGUAGES',
+    // The lifeblood (Earth)
+    items: ['JavaScript', 'Python', 'Go', 'Swift', 'Waf'],
   },
   {
-    category: 'INFRASTRUCTURE',
-    items: ['Docker', 'AWS', 'Kubernetes', 'CI/CD', 'Terraform'],
+    category: 'FRONTEND & UI',
+    // The surface visuals (Venus)
+    items: ['React', 'Web Development', 'PySimpleGUI'],
   },
   {
-    category: 'CREATIVE',
-    items: ['WebGL', 'GLSL', 'Figma', 'Blender', 'After Effects'],
+    category: 'BACKEND & DATABASE',
+    // The infrastructure (Mars)
+    items: ['Django', 'Flask', 'API Integration', 'Docker', 'Supabase', 'PostgreSQL', 'MongoDB'],
+  },
+  {
+    category: 'AUTOMATION & AI',
+    // Complex systems (Jupiter)
+    items: ['N8N', 'Make (Integromat)', 'OpenCV'],
+  },
+  {
+    category: 'LEADERSHIP & OPS',
+    // The governing forces (Saturn)
+    items: ['Team Leadership', 'Team Collaboration', 'Start-up Operations', 'Sales Skills'],
+  },
+  {
+    category: 'COMMUNICATION & TOOLS',
+    // The outer reaches (Uranus/Neptune)
+    items: ['Effective Public Speaker', 'Problem-solving Aptitude', 'Slack', 'Xcode'],
   },
 ];
 
