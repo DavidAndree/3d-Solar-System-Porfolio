@@ -4,6 +4,25 @@ interface FourthDimensionPanelProps {
   visible: boolean;
 }
 
+const concepts = [
+  {
+    title: 'TIME AS SPACE',
+    description: 'Near the singularity, time becomes a traversable spatial dimension. Past and future coexist as locations.',
+  },
+  {
+    title: 'WARPED GEOMETRY',
+    description: 'Spacetime curves infinitely inward. Parallel lines converge. Euclidean rules dissolve.',
+  },
+  {
+    title: 'INFINITE DENSITY',
+    description: 'All matter compresses to a dimensionless point. Physics as we know it ceases to apply.',
+  },
+  {
+    title: 'QUANTUM FOAM',
+    description: 'At Planck scale, spacetime itself becomes turbulent. Reality fluctuates between states of existence.',
+  },
+];
+
 export default function FourthDimensionPanel({ visible }: FourthDimensionPanelProps) {
   return (
     <div className={`panel-container ${visible ? 'panel-visible' : 'panel-hidden'}`}>

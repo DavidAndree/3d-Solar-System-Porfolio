@@ -214,14 +214,14 @@ export const experience = [
 
 export const testimonials = [
   {
-    name: 'Jia Seed',
+    name: 'Jia Seed ',
     role: 'Founder, Jam',
     text: "Bread🍞.",
   },
   {
     name: 'Eliseo Guerra',
-    role: 'Network Analyst',
-    text: 'He told me top put this',
+    role: 'Veteran/ CEO @ ComputerLab',
+    text: 'Does stuff.',
   },
   {
     name: 'David Alvarado',
