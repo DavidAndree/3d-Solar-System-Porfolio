@@ -3,7 +3,7 @@ import Tesseract from '../Tesseract';
 interface FourthDimensionPanelProps {
   visible: boolean;
 }
-//Label Boxes
+
 // const concepts = [
 //   {
 //     title: 'TIME AS SPACE',
