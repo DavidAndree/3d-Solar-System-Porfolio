@@ -21,7 +21,7 @@ export default function AboutPanel({ visible }: AboutPanelProps) {
 
           <div className="space-y-3 text-gray-300 text-sm leading-relaxed font-sans">
             <p>
-              Computer Science student pationate about software development, machine learning, AI, math, and physics. I'm David Alvardo btw and this is like my little "space" to share my projects, repos, things about me, experience, to amaze my employers.
+              Computer Science student pationate about software development, machine learning, AI, math, and physics. I'm David Alvarado btw and this is like my "space" to share my projects, repos, things about me, experience, to amaze my employers.
             </p>
             <p>
               My journey started with a B.S. in Computer Science from Western Michigan University, followed
