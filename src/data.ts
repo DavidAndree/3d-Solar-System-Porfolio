@@ -220,8 +220,8 @@ export const testimonials = [
   },
   {
     name: 'Eliseo Guerra',
-    role: 'Veteran/ CEO @ ComputerLab',
-    text: 'Does stuff.',
+    role: 'Computer Technician',
+    text: 'Working with David is so easy.',
   },
   {
     name: 'David Alvarado',
