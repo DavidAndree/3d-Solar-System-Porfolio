@@ -27,25 +27,27 @@ function GalleryImage({
     onHoverStart(src, alt);
   };
 
-  const aspectClass = aspect === 'phone'
-    ? 'aspect-[3/4]'
+  const pb = aspect === 'phone'
+    ? '133.33%'
     : aspect === 'portrait'
-      ? 'aspect-[4/3]'
+      ? '75%'
       : aspect === 'landscape'
-        ? 'aspect-[16/9]'
-        : 'aspect-[4/3]';
+        ? '56.25%'
+        : '75%';
 
   return (
     <div
-      className={`overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-all duration-500 ${aspectClass}`}
-      style={{
-        backgroundImage: `url(${src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-all duration-500 relative w-full"
+      style={{ paddingBottom: pb }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={onHoverEnd}
-    />
+    >
+      <img
+        src={src}
+        alt={alt}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+    </div>
   );
 }
 

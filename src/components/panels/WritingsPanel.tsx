@@ -42,14 +42,11 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
         <div className="mt-5 space-y-2.5">
           {featured && (
             <div
-              className="feed-card group cursor-pointer relative overflow-hidden rounded-sm aspect-video"
+              className="feed-card group cursor-pointer relative overflow-hidden rounded-sm"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
                 transition: 'all 0.45s cubic-bezier(0.22, 1, 0.36, 1) 150ms',
-                backgroundImage: `url(${featured.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
               }}
               onMouseEnter={() => {
                 setHoveredIdx(0);
@@ -60,6 +57,14 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                 handleEnlargeEnd();
               }}
             >
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <img
+                  src={featured.image}
+                  alt={featured.caption}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+
               <div
                 className="absolute inset-0 transition-opacity duration-300"
                 style={{
@@ -93,14 +98,11 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
               return (
                 <div
                   key={idx}
-                  className="feed-card group cursor-pointer relative overflow-hidden rounded-sm aspect-square"
+                  className="feed-card group cursor-pointer relative overflow-hidden rounded-sm"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
                     transition: `all 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${idx * 80 + 150}ms`,
-                    backgroundImage: `url(${post.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
                   }}
                   onMouseEnter={() => {
                     setHoveredIdx(idx);
@@ -111,6 +113,14 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                     handleEnlargeEnd();
                   }}
                 >
+                  <div className="relative w-full" style={{ paddingBottom: '100%' }}>
+                    <img
+                      src={post.image}
+                      alt={post.caption}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+
                   <div
                     className="absolute inset-0 transition-opacity duration-300"
                     style={{
