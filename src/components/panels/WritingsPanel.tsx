@@ -57,13 +57,17 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                 handleEnlargeEnd();
               }}
             >
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <img
-                  src={featured.image}
-                  alt={featured.caption}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
+              <img
+                src={featured.image}
+                alt={featured.caption}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: '180px',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
 
               <div
                 className="absolute inset-0 transition-opacity duration-300"
@@ -113,13 +117,17 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                     handleEnlargeEnd();
                   }}
                 >
-                  <div className="relative w-full" style={{ paddingBottom: '100%' }}>
-                    <img
-                      src={post.image}
-                      alt={post.caption}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
+                  <img
+                    src={post.image}
+                    alt={post.caption}
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      height: '140px',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                    }}
+                  />
 
                   <div
                     className="absolute inset-0 transition-opacity duration-300"

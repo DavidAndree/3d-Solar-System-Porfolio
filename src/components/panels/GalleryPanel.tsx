@@ -10,42 +10,35 @@ interface HoverState {
   title: string;
 }
 
+const ASPECT_HEIGHTS: Record<string, string> = {
+  portrait: '200px',
+  phone: '260px',
+  landscape: '140px',
+};
+
 function GalleryImage({
   src,
   alt,
   aspect,
-  onHoverStart,
-  onHoverEnd,
 }: {
   src: string;
   alt: string;
   aspect?: string;
-  onHoverStart: (image: string, title: string) => void;
-  onHoverEnd: () => void;
 }) {
-  const handleMouseEnter = () => {
-    onHoverStart(src, alt);
-  };
-
-  const pb = aspect === 'phone'
-    ? '133.33%'
-    : aspect === 'portrait'
-      ? '75%'
-      : aspect === 'landscape'
-        ? '56.25%'
-        : '75%';
+  const h = ASPECT_HEIGHTS[aspect || 'portrait'] || '200px';
 
   return (
-    <div
-      className="overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-all duration-500 relative w-full"
-      style={{ paddingBottom: pb }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={onHoverEnd}
-    >
+    <div className="overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-all duration-500">
       <img
         src={src}
         alt={alt}
-        className="absolute inset-0 w-full h-full object-cover"
+        style={{
+          display: 'block',
+          width: '100%',
+          height: h,
+          objectFit: 'cover',
+          objectPosition: 'center',
+        }}
       />
     </div>
   );
@@ -89,13 +82,15 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               transition: 'all 0.4s ease 200ms',
             }}
           >
-            <div className="gallery-card group cursor-pointer w-1/2">
+            <div
+              className="gallery-card group cursor-pointer w-1/2"
+              onMouseEnter={() => handleHoverStart(featured.image, featured.title)}
+              onMouseLeave={handleHoverEnd}
+            >
               <GalleryImage
                 src={featured.image}
                 alt={featured.title}
                 aspect={featured.aspect}
-                onHoverStart={handleHoverStart}
-                onHoverEnd={handleHoverEnd}
               />
               <div className="mt-2">
                 <h4 className="text-xs text-white font-mono">{featured.title}</h4>
@@ -110,13 +105,13 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
                 transform: visible ? 'translateY(0)' : 'translateY(10px)',
                 transition: 'all 0.4s ease 300ms',
               }}
+              onMouseEnter={() => handleHoverStart(phoneScreens[0].image, phoneScreens[0].title)}
+              onMouseLeave={handleHoverEnd}
             >
               <GalleryImage
                 src={phoneScreens[0].image}
                 alt={phoneScreens[0].title}
                 aspect={phoneScreens[0].aspect}
-                onHoverStart={handleHoverStart}
-                onHoverEnd={handleHoverEnd}
               />
               <div className="mt-2">
                 <h4 className="text-xs text-white font-mono">{phoneScreens[0].title}</h4>
@@ -135,13 +130,13 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
                   transform: visible ? 'translateY(0)' : 'translateY(10px)',
                   transition: `all 0.4s ease ${(i + 2) * 100 + 200}ms`,
                 }}
+                onMouseEnter={() => handleHoverStart(item.image, item.title)}
+                onMouseLeave={handleHoverEnd}
               >
                 <GalleryImage
                   src={item.image}
                   alt={item.title}
                   aspect={item.aspect}
-                  onHoverStart={handleHoverStart}
-                  onHoverEnd={handleHoverEnd}
                 />
                 <div className="mt-2">
                   <h4 className="text-xs text-white font-mono">{item.title}</h4>
@@ -159,13 +154,13 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
                 transform: visible ? 'translateY(0)' : 'translateY(10px)',
                 transition: 'all 0.4s ease 600ms',
               }}
+              onMouseEnter={() => handleHoverStart(bottom.image, bottom.title)}
+              onMouseLeave={handleHoverEnd}
             >
               <GalleryImage
                 src={bottom.image}
                 alt={bottom.title}
                 aspect={bottom.aspect}
-                onHoverStart={handleHoverStart}
-                onHoverEnd={handleHoverEnd}
               />
               <div className="mt-2">
                 <h4 className="text-xs text-white font-mono">{bottom.title}</h4>
