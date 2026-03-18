@@ -57,11 +57,11 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                 handleEnlargeEnd();
               }}
             >
-              <div className={`overflow-hidden ${featured.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-video'}`}>
+              <div className="overflow-hidden bg-black/40">
                 <img
                   src={featured.image}
                   alt={featured.caption}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-auto block transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
               </div>
@@ -114,11 +114,11 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                     handleEnlargeEnd();
                   }}
                 >
-                  <div className={`overflow-hidden ${post.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'}`}>
+                  <div className="overflow-hidden bg-black/40">
                     <img
                       src={post.image}
                       alt={post.caption}
-                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-auto block transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
