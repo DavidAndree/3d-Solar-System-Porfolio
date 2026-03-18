@@ -8,41 +8,44 @@ interface GalleryPanelProps {
 interface HoverState {
   image: string;
   title: string;
-  rect: DOMRect;
 }
 
 function GalleryImage({
   src,
   alt,
-  className,
+  aspect,
   onHoverStart,
   onHoverEnd,
 }: {
   src: string;
   alt: string;
-  className: string;
-  onHoverStart: (image: string, title: string, rect: DOMRect) => void;
+  aspect?: string;
+  onHoverStart: (image: string, title: string) => void;
   onHoverEnd: () => void;
 }) {
-  const imgRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
-    if (imgRef.current) {
-      onHoverStart(src, alt, imgRef.current.getBoundingClientRect());
-    }
+    onHoverStart(src, alt);
   };
+
+  const aspectClass = aspect === 'phone' || aspect === 'portrait'
+    ? 'aspect-[3/4]'
+    : aspect === 'landscape'
+      ? 'aspect-video'
+      : 'aspect-[4/3]';
 
   return (
     <div
-      ref={imgRef}
-      className="overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-colors"
+      ref={containerRef}
+      className={`overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-colors ${aspectClass}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={onHoverEnd}
     >
       <img
         src={src}
         alt={alt}
-        className={className}
+        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
       />
     </div>
   );
@@ -55,9 +58,9 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
   const [hovered, setHovered] = useState<HoverState | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleHoverStart = useCallback((image: string, title: string, rect: DOMRect) => {
+  const handleHoverStart = useCallback((image: string, title: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setHovered({ image, title, rect });
+    setHovered({ image, title });
   }, []);
 
   const handleHoverEnd = useCallback(() => {
@@ -65,8 +68,6 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
       setHovered(null);
     }, 150);
   }, []);
-
-  const imgClass = "w-full h-48 object-cover object-top transition-transform duration-500 group-hover:scale-105";
 
   return (
     <div className={`panel-container ${visible ? 'panel-visible' : 'panel-hidden'}`}>
@@ -92,7 +93,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               <GalleryImage
                 src={featured.image}
                 alt={featured.title}
-                className={imgClass}
+                aspect={featured.aspect}
                 onHoverStart={handleHoverStart}
                 onHoverEnd={handleHoverEnd}
               />
@@ -113,7 +114,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               <GalleryImage
                 src={phoneScreens[0].image}
                 alt={phoneScreens[0].title}
-                className={imgClass}
+                aspect={phoneScreens[0].aspect}
                 onHoverStart={handleHoverStart}
                 onHoverEnd={handleHoverEnd}
               />
@@ -138,7 +139,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
                 <GalleryImage
                   src={item.image}
                   alt={item.title}
-                  className={imgClass}
+                  aspect={item.aspect}
                   onHoverStart={handleHoverStart}
                   onHoverEnd={handleHoverEnd}
                 />
@@ -162,7 +163,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               <GalleryImage
                 src={bottom.image}
                 alt={bottom.title}
-                className="w-full h-36 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                aspect={bottom.aspect}
                 onHoverStart={handleHoverStart}
                 onHoverEnd={handleHoverEnd}
               />

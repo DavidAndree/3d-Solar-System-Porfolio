@@ -1,14 +1,32 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { posts } from '../../data';
 
 interface WritingsPanelProps {
   visible: boolean;
 }
 
+interface HoverState {
+  image: string;
+  caption: string;
+}
+
 export default function WritingsPanel({ visible }: WritingsPanelProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [enlarged, setEnlarged] = useState<HoverState | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const featured = posts[0];
   const grid = posts.slice(1);
+
+  const handleEnlargeStart = useCallback((image: string, caption: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setEnlarged({ image, caption });
+  }, []);
+
+  const handleEnlargeEnd = useCallback(() => {
+    timeoutRef.current = setTimeout(() => {
+      setEnlarged(null);
+    }, 150);
+  }, []);
 
   return (
     <div className={`panel-container ${visible ? 'panel-visible' : 'panel-hidden'}`}>
@@ -30,10 +48,16 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                 transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
                 transition: 'all 0.45s cubic-bezier(0.22, 1, 0.36, 1) 150ms',
               }}
-              onMouseEnter={() => setHoveredIdx(0)}
-              onMouseLeave={() => setHoveredIdx(null)}
+              onMouseEnter={() => {
+                setHoveredIdx(0);
+                handleEnlargeStart(featured.image, featured.caption);
+              }}
+              onMouseLeave={() => {
+                setHoveredIdx(null);
+                handleEnlargeEnd();
+              }}
             >
-              <div className="aspect-video overflow-hidden">
+              <div className={`overflow-hidden ${featured.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-video'}`}>
                 <img
                   src={featured.image}
                   alt={featured.caption}
@@ -81,10 +105,16 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                     transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
                     transition: `all 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${idx * 80 + 150}ms`,
                   }}
-                  onMouseEnter={() => setHoveredIdx(idx)}
-                  onMouseLeave={() => setHoveredIdx(null)}
+                  onMouseEnter={() => {
+                    setHoveredIdx(idx);
+                    handleEnlargeStart(post.image, post.caption);
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredIdx(null);
+                    handleEnlargeEnd();
+                  }}
                 >
-                  <div className="aspect-square overflow-hidden">
+                  <div className={`overflow-hidden ${post.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-square'}`}>
                     <img
                       src={post.image}
                       alt={post.caption}
@@ -123,6 +153,29 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
           </div>
         </div>
       </div>
+
+      {enlarged && (
+        <div
+          className="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center"
+          style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}
+        >
+          <div
+            className="relative max-w-[80vw] max-h-[80vh] rounded-lg overflow-hidden border border-teal-400/40 shadow-2xl shadow-teal-400/10"
+            style={{
+              animation: 'galleryZoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            }}
+          >
+            <img
+              src={enlarged.image}
+              alt={enlarged.caption}
+              className="block max-w-[80vw] max-h-[80vh] object-contain"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-4 py-3">
+              <p className="text-xs text-white font-mono">{enlarged.caption}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
