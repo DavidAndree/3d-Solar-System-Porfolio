@@ -13,11 +13,13 @@ interface HoverState {
 function GalleryImage({
   src,
   alt,
+  aspect,
   onHoverStart,
   onHoverEnd,
 }: {
   src: string;
   alt: string;
+  aspect?: string;
   onHoverStart: (image: string, title: string) => void;
   onHoverEnd: () => void;
 }) {
@@ -27,17 +29,23 @@ function GalleryImage({
     onHoverStart(src, alt);
   };
 
+  const aspectClass = aspect === 'phone' || aspect === 'portrait'
+    ? 'aspect-[3/4]'
+    : aspect === 'landscape'
+      ? 'aspect-[16/9]'
+      : 'aspect-[4/3]';
+
   return (
     <div
       ref={containerRef}
-      className="overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-colors bg-black/40"
+      className={`overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-colors ${aspectClass}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={onHoverEnd}
     >
       <img
         src={src}
         alt={alt}
-        className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
       />
     </div>
   );
@@ -85,7 +93,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               <GalleryImage
                 src={featured.image}
                 alt={featured.title}
-
+                aspect={featured.aspect}
                 onHoverStart={handleHoverStart}
                 onHoverEnd={handleHoverEnd}
               />
@@ -106,7 +114,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               <GalleryImage
                 src={phoneScreens[0].image}
                 alt={phoneScreens[0].title}
-
+                aspect={phoneScreens[0].aspect}
                 onHoverStart={handleHoverStart}
                 onHoverEnd={handleHoverEnd}
               />
@@ -131,7 +139,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
                 <GalleryImage
                   src={item.image}
                   alt={item.title}
-
+                  aspect={item.aspect}
                   onHoverStart={handleHoverStart}
                   onHoverEnd={handleHoverEnd}
                 />
@@ -155,7 +163,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               <GalleryImage
                 src={bottom.image}
                 alt={bottom.title}
-
+                aspect={bottom.aspect}
                 onHoverStart={handleHoverStart}
                 onHoverEnd={handleHoverEnd}
               />
