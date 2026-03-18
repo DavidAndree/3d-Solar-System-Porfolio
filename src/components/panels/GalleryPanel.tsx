@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { gallery } from '../../data';
 
 interface GalleryPanelProps {
@@ -23,8 +23,6 @@ function GalleryImage({
   onHoverStart: (image: string, title: string) => void;
   onHoverEnd: () => void;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const handleMouseEnter = () => {
     onHoverStart(src, alt);
   };
@@ -39,17 +37,15 @@ function GalleryImage({
 
   return (
     <div
-      ref={containerRef}
-      className={`overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-colors ${aspectClass}`}
+      className={`overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-all duration-500 ${aspectClass}`}
+      style={{
+        backgroundImage: `url(${src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={onHoverEnd}
-    >
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-      />
-    </div>
+    />
   );
 }
 
@@ -84,7 +80,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
 
         <div className="mt-6 space-y-3">
           <div
-            className="flex gap-3"
+            className="flex gap-3 items-start"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(10px)',
@@ -127,7 +123,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
             </div>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-start">
             {phoneScreens.slice(1).map((item, i) => (
               <div
                 key={item.title}

@@ -42,11 +42,14 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
         <div className="mt-5 space-y-2.5">
           {featured && (
             <div
-              className={`feed-card group cursor-pointer relative overflow-hidden rounded-sm ${featured.aspect === 'portrait' ? 'aspect-[4/3]' : 'aspect-[16/9]'}`}
+              className="feed-card group cursor-pointer relative overflow-hidden rounded-sm aspect-video"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
                 transition: 'all 0.45s cubic-bezier(0.22, 1, 0.36, 1) 150ms',
+                backgroundImage: `url(${featured.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
               }}
               onMouseEnter={() => {
                 setHoveredIdx(0);
@@ -57,13 +60,6 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                 handleEnlargeEnd();
               }}
             >
-              <img
-                src={featured.image}
-                alt={featured.caption}
-                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
-
               <div
                 className="absolute inset-0 transition-opacity duration-300"
                 style={{
@@ -97,11 +93,14 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
               return (
                 <div
                   key={idx}
-                  className={`feed-card group cursor-pointer relative overflow-hidden rounded-sm ${post.aspect === 'portrait' ? 'aspect-[4/3]' : 'aspect-[16/9]'}`}
+                  className="feed-card group cursor-pointer relative overflow-hidden rounded-sm aspect-square"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
                     transition: `all 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${idx * 80 + 150}ms`,
+                    backgroundImage: `url(${post.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                   }}
                   onMouseEnter={() => {
                     setHoveredIdx(idx);
@@ -112,13 +111,6 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                     handleEnlargeEnd();
                   }}
                 >
-                  <img
-                    src={post.image}
-                    alt={post.caption}
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-
                   <div
                     className="absolute inset-0 transition-opacity duration-300"
                     style={{
