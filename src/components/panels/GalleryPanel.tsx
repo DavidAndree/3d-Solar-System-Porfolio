@@ -29,11 +29,13 @@ function GalleryImage({
     onHoverStart(src, alt);
   };
 
-  const aspectClass = aspect === 'phone' || aspect === 'portrait'
+  const aspectClass = aspect === 'phone'
     ? 'aspect-[3/4]'
-    : aspect === 'landscape'
-      ? 'aspect-[16/9]'
-      : 'aspect-[4/3]';
+    : aspect === 'portrait'
+      ? 'aspect-[4/3]'
+      : aspect === 'landscape'
+        ? 'aspect-[16/9]'
+        : 'aspect-[4/3]';
 
   return (
     <div

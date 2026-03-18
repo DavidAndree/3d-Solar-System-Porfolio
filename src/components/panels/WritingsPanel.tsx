@@ -42,7 +42,7 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
         <div className="mt-5 space-y-2.5">
           {featured && (
             <div
-              className="feed-card group cursor-pointer relative overflow-hidden rounded-sm"
+              className={`feed-card group cursor-pointer relative overflow-hidden rounded-sm ${featured.aspect === 'portrait' ? 'aspect-[4/3]' : 'aspect-[16/9]'}`}
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
@@ -57,14 +57,12 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                 handleEnlargeEnd();
               }}
             >
-              <div className={`overflow-hidden ${featured.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-[16/9]'}`}>
-                <img
-                  src={featured.image}
-                  alt={featured.caption}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
+              <img
+                src={featured.image}
+                alt={featured.caption}
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
 
               <div
                 className="absolute inset-0 transition-opacity duration-300"
@@ -99,7 +97,7 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
               return (
                 <div
                   key={idx}
-                  className="feed-card group cursor-pointer relative overflow-hidden rounded-sm"
+                  className={`feed-card group cursor-pointer relative overflow-hidden rounded-sm ${post.aspect === 'portrait' ? 'aspect-[4/3]' : 'aspect-[16/9]'}`}
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.96)',
@@ -114,14 +112,12 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                     handleEnlargeEnd();
                   }}
                 >
-                  <div className={`overflow-hidden ${post.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-[16/9]'}`}>
-                    <img
-                      src={post.image}
-                      alt={post.caption}
-                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                  </div>
+                  <img
+                    src={post.image}
+                    alt={post.caption}
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
 
                   <div
                     className="absolute inset-0 transition-opacity duration-300"
