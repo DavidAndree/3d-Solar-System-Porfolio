@@ -127,27 +127,9 @@ export const skillCategories = [
 
 export const projects = [
   {
-    title: 'Neural Interface',
-    description: 'AI-powered real-time data visualization platform with WebGL rendering.',
-    tech: ['React', 'Three.js', 'Python', 'TensorFlow'],
-    link: '#',
-  },
-  {
-    title: 'Quantum Ledger',
-    description: 'Decentralized transaction system with zero-knowledge proof verification.',
-    tech: ['Rust', 'TypeScript', 'PostgreSQL'],
-    link: '#',
-  },
-  {
-    title: 'Horizon OS',
-    description: 'Cross-platform task management system with real-time collaboration.',
-    tech: ['React', 'Node.js', 'WebSocket', 'Redis'],
-    link: '#',
-  },
-  {
-    title: 'Signal Flow',
-    description: 'Audio processing engine with spectral analysis and ML-driven enhancement.',
-    tech: ['Python', 'C++', 'WebAudio API'],
+    title: 'Posting github repos here soon',
+    description: 'Temp text',
+    tech: ['Python'],
     link: '#',
   },
 ];
