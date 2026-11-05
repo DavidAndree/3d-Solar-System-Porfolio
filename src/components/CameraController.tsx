@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import * as THREE from 'three';
 import type { CelestialId } from '../types';
 import { planetPositions } from '../store';
@@ -13,7 +14,7 @@ const OVERVIEW_POS = new THREE.Vector3(0, 30, 38);
 const OVERVIEW_TARGET = new THREE.Vector3(0, 0, 0);
 
 export default function CameraController({ focusTarget }: CameraControllerProps) {
-  const controlsRef = useRef<typeof OrbitControls extends React.ForwardRefExoticComponent<infer P> ? (P extends React.RefAttributes<infer T> ? T : never) : never>(null);
+  const controlsRef = useRef<OrbitControlsImpl>(null);
   const targetPos = useRef(new THREE.Vector3(0, 35, 40));
   const targetLookAt = useRef(new THREE.Vector3(0, 0, 0));
   const prevFocus = useRef<CelestialId | null>(null);
@@ -29,7 +30,7 @@ export default function CameraController({ focusTarget }: CameraControllerProps)
   }, [focusTarget]);
 
   useFrame(() => {
-    const controls = controlsRef.current as any;
+    const controls = controlsRef.current;
     if (!controls) return;
 
     if (focusTarget) {

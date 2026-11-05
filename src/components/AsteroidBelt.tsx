@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useLayoutEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -47,7 +47,8 @@ export default function AsteroidBelt({ innerRadius = 15, outerRadius = 17, count
     ));
   }, [count]);
 
-  useMemo(() => {
+  // Runs after the instanced mesh is mounted, so ref.current is set.
+  useLayoutEffect(() => {
     if (!ref.current) return;
     const color = new THREE.Color();
     for (let i = 0; i < count; i++) {
@@ -61,7 +62,7 @@ export default function AsteroidBelt({ innerRadius = 15, outerRadius = 17, count
       ref.current.setColorAt(i, color);
     }
     if (ref.current.instanceColor) ref.current.instanceColor.needsUpdate = true;
-  }, [count, ref.current]);
+  }, [count]);
 
   useFrame(({ clock }) => {
     if (!ref.current) return;

@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import { fadeIn } from './fadeIn';
 
 interface ContactPanelProps {
   visible: boolean;
@@ -31,11 +32,7 @@ export default function ContactPanel({ visible }: ContactPanelProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="contact-link group"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(6px)',
-                transition: `all 0.35s ease ${i * 80 + 200}ms`,
-              }}
+              style={fadeIn(visible, i * 80 + 200, { offset: 6, duration: 0.35 })}
             >
               <div>
                 <div className="text-[9px] font-mono tracking-[0.15em] text-gray-600 mb-0.5">

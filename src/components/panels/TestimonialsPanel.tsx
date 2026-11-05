@@ -1,4 +1,5 @@
 import { testimonials } from '../../data';
+import { fadeIn } from './fadeIn';
 
 interface TestimonialsPanelProps {
   visible: boolean;
@@ -21,11 +22,7 @@ export default function TestimonialsPanel({ visible }: TestimonialsPanelProps) {
             <div
               key={item.name}
               className="testimonial-card"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(8px)',
-                transition: `all 0.4s ease ${i * 120 + 200}ms`,
-              }}
+              style={fadeIn(visible, i * 120 + 200)}
             >
               <p className="text-[11px] text-gray-300 leading-relaxed italic">
                 "{item.text}"

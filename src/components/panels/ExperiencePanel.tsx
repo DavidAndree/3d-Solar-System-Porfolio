@@ -1,4 +1,5 @@
 import { experience } from '../../data';
+import { fadeIn } from './fadeIn';
 
 interface ExperiencePanelProps {
   visible: boolean;
@@ -22,13 +23,9 @@ export default function ExperiencePanel({ visible }: ExperiencePanelProps) {
           <div className="space-y-5">
             {experience.map((item, i) => (
               <div
-                key={item.company}
+                key={`${item.company}-${item.role}`}
                 className="pl-6 relative"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? 'translateY(0)' : 'translateY(8px)',
-                  transition: `all 0.4s ease ${i * 100 + 200}ms`,
-                }}
+                style={fadeIn(visible, i * 100 + 200)}
               >
                 <div className="absolute left-0 top-1.5 w-[7px] h-[7px] rounded-full border border-amber-500/50 bg-gray-900" />
                 <div className="text-[9px] font-mono tracking-[0.15em] text-amber-500/70 mb-1">

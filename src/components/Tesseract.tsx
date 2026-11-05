@@ -31,7 +31,7 @@ export default function Tesseract() {
     }
 
     let frameId: number;
-    let startTime = performance.now();
+    const startTime = performance.now();
 
     const draw = (now: number) => {
       const elapsed = (now - startTime) / 1000;

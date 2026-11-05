@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { projects } from '../../data';
+import { fadeIn } from './fadeIn';
 
 interface ProjectsPanelProps {
   visible: boolean;
@@ -23,11 +24,7 @@ export default function ProjectsPanel({ visible }: ProjectsPanelProps) {
             <div
               key={project.title}
               className="project-card"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(8px)',
-                transition: `all 0.3s ease ${i * 80 + 200}ms`,
-              }}
+              style={fadeIn(visible, i * 80 + 200, { duration: 0.3 })}
             >
               <div className="flex items-start justify-between">
                 <h4 className="text-white font-mono text-xs">{project.title}</h4>
