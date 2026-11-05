@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import * as THREE from 'three';
@@ -15,6 +15,7 @@ export default function Planet({ config, onClick, isFocused }: PlanetProps) {
   const groupRef = useRef<THREE.Group>(null);
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
+  const position = useMemo(() => new THREE.Vector3(), []);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
@@ -22,7 +23,7 @@ export default function Planet({ config, onClick, isFocused }: PlanetProps) {
       const x = config.orbitRadius * Math.cos(config.speed * t + config.offset);
       const z = config.orbitRadius * Math.sin(config.speed * t + config.offset);
       groupRef.current.position.set(x, 0, z);
-      planetPositions[config.id] = new THREE.Vector3(x, 0, z);
+      planetPositions[config.id] = position.set(x, 0, z);
     }
     if (meshRef.current) {
       meshRef.current.rotation.y = t * 0.3;

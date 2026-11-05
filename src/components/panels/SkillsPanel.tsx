@@ -1,4 +1,5 @@
 import { skillCategories } from '../../data';
+import { fadeIn } from './fadeIn';
 
 interface SkillsPanelProps {
   visible: boolean;
@@ -20,11 +21,7 @@ export default function SkillsPanel({ visible }: SkillsPanelProps) {
           {skillCategories.map((group, gi) => (
             <div
               key={group.category}
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(8px)',
-                transition: `all 0.4s ease ${gi * 100 + 150}ms`,
-              }}
+              style={fadeIn(visible, gi * 100 + 150)}
             >
               <div className="text-[9px] font-mono tracking-[0.2em] text-gray-600 mb-2">
                 {group.category}

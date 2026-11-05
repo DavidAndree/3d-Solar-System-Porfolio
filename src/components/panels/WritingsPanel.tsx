@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { posts } from '../../data';
 
 interface WritingsPanelProps {
@@ -16,6 +16,10 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const featured = posts[0];
   const grid = posts.slice(1);
+
+  useEffect(() => () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  }, []);
 
   const handleEnlargeStart = useCallback((image: string, caption: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -58,6 +62,7 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
               }}
             >
               <img
+                loading="lazy"
                 src={featured.image}
                 alt={featured.caption}
                 style={{
@@ -118,6 +123,7 @@ export default function WritingsPanel({ visible }: WritingsPanelProps) {
                   }}
                 >
                   <img
+                    loading="lazy"
                     src={post.image}
                     alt={post.caption}
                     style={{

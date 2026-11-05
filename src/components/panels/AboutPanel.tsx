@@ -1,3 +1,4 @@
+import { fadeIn } from './fadeIn';
 interface AboutPanelProps {
   visible: boolean;
 }
@@ -14,14 +15,14 @@ export default function AboutPanel({ visible }: AboutPanelProps) {
           <div className="profile-image-wrapper flex-shrink-0">
             <img
               src="/Screenshot_2026-03-12_at_3.23.07_PM.png"
-              alt="David Alvardo"
+              alt="David Alvarado"
               className="w-24 h-24 rounded-sm object-cover border border-white/10"
             />
           </div>
 
           <div className="space-y-3 text-gray-300 text-sm leading-relaxed font-sans">
             <p>
-              Computer Science student pationate about software development, machine learning, AI, and math. I'm David Alvarado btw and this is like my "space" to share my projects, repos, things about me, experience, to amaze my employers.
+              Computer Science student passionate about software development, machine learning, AI, and math. I'm David Alvarado btw and this is like my "space" to share my projects, repos, things about me, experience, to amaze my employers.
             </p>
             <p>
               My journey started with a B.S. in Computer Science from Western Michigan University, followed
@@ -39,16 +40,12 @@ export default function AboutPanel({ visible }: AboutPanelProps) {
             { value: '4+', label: 'YEARS EXP' },
             { value: '50+', label: 'PROJECTS' },
             { value: '∞', label: 'HOURS IN FIELD' },
-            { value: '2', label: 'CELSIUS DRANKED' },
+            { value: '2', label: 'CELSIUS DRANK' },
           ].map((stat, i) => (
             <div
               key={stat.label}
               className="stat-card"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(8px)',
-                transition: `all 0.4s ease ${i * 80 + 300}ms`,
-              }}
+              style={fadeIn(visible, i * 80 + 300)}
             >
               <span className="stat-value">{stat.value}</span>
               <span className="stat-label">{stat.label}</span>

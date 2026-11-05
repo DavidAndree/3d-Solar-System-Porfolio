@@ -1,5 +1,6 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { gallery } from '../../data';
+import { fadeIn } from './fadeIn';
 
 interface GalleryPanelProps {
   visible: boolean;
@@ -30,6 +31,7 @@ function GalleryImage({
   return (
     <div className="overflow-hidden rounded border border-white/5 group-hover:border-yellow-500/30 transition-all duration-500">
       <img
+        loading="lazy"
         src={src}
         alt={alt}
         style={{
@@ -50,6 +52,10 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
   const bottom = gallery[4];
   const [hovered, setHovered] = useState<HoverState | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  }, []);
 
   const handleHoverStart = useCallback((image: string, title: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -76,11 +82,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
         <div className="mt-6 space-y-3">
           <div
             className="flex gap-3 items-start"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? 'translateY(0)' : 'translateY(10px)',
-              transition: 'all 0.4s ease 200ms',
-            }}
+            style={fadeIn(visible, 200, { offset: 10 })}
           >
             <div
               className="gallery-card group cursor-pointer w-1/2"
@@ -100,11 +102,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
 
             <div
               className="gallery-card group cursor-pointer w-1/2"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(10px)',
-                transition: 'all 0.4s ease 300ms',
-              }}
+              style={fadeIn(visible, 300, { offset: 10 })}
               onMouseEnter={() => handleHoverStart(phoneScreens[0].image, phoneScreens[0].title)}
               onMouseLeave={handleHoverEnd}
             >
@@ -125,11 +123,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
               <div
                 key={item.title}
                 className="gallery-card group cursor-pointer w-1/2"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? 'translateY(0)' : 'translateY(10px)',
-                  transition: `all 0.4s ease ${(i + 2) * 100 + 200}ms`,
-                }}
+                style={fadeIn(visible, (i + 2) * 100 + 200, { offset: 10 })}
                 onMouseEnter={() => handleHoverStart(item.image, item.title)}
                 onMouseLeave={handleHoverEnd}
               >
@@ -149,11 +143,7 @@ export default function GalleryPanel({ visible }: GalleryPanelProps) {
           {bottom && (
             <div
               className="gallery-card group cursor-pointer"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(10px)',
-                transition: 'all 0.4s ease 600ms',
-              }}
+              style={fadeIn(visible, 600, { offset: 10 })}
               onMouseEnter={() => handleHoverStart(bottom.image, bottom.title)}
               onMouseLeave={handleHoverEnd}
             >

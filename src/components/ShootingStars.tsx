@@ -12,9 +12,21 @@ interface Streak {
   active: boolean;
 }
 
+const STREAK_COLORS = ['#ffffff', '#cce5ff', '#ffe4b5', '#b0e0e6', '#ffd6a5'];
+
 export default function ShootingStars() {
   const maxStreaks = 8;
   const meshRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const scratch = useMemo(() => ({
+    headPos: new THREE.Vector3(),
+    tailPos: new THREE.Vector3(),
+    center: new THREE.Vector3(),
+    dir: new THREE.Vector3(),
+    right: new THREE.Vector3(),
+    up: new THREE.Vector3(),
+    camDir: new THREE.Vector3(),
+    matrix: new THREE.Matrix4(),
+  }), []);
 
   const streaks = useMemo<Streak[]>(() => {
     return Array.from({ length: maxStreaks }, (_, i) => ({
@@ -100,9 +112,8 @@ export default function ShootingStars() {
         if (s.delay <= 0) {
           respawnStreak(s);
           s.active = true;
-          const colors = ['#ffffff', '#cce5ff', '#ffe4b5', '#b0e0e6', '#ffd6a5'];
           (mat.uniforms.streakColor.value as THREE.Color).set(
-            colors[Math.floor(Math.random() * colors.length)]
+            STREAK_COLORS[Math.floor(Math.random() * STREAK_COLORS.length)]
           );
         }
         mat.uniforms.headAlpha.value = 0;
@@ -112,23 +123,22 @@ export default function ShootingStars() {
 
       mesh.visible = true;
       s.progress += delta * s.speed;
-      const headPos = s.origin.clone().add(s.direction.clone().multiplyScalar(s.progress));
-      const tailPos = s.origin.clone().add(s.direction.clone().multiplyScalar(Math.max(0, s.progress - s.length)));
+      // Reuse scratch objects instead of allocating new vectors every frame.
+      const { headPos, tailPos, center, dir, right, up, camDir, matrix } = scratch;
+      headPos.copy(s.origin).addScaledVector(s.direction, s.progress);
+      tailPos.copy(s.origin).addScaledVector(s.direction, Math.max(0, s.progress - s.length));
+      center.addVectors(headPos, tailPos).multiplyScalar(0.5);
+      dir.subVectors(headPos, tailPos);
+      const len = dir.length();
+      dir.normalize();
 
-      const center = headPos.clone().add(tailPos).multiplyScalar(0.5);
-      const streakDir = headPos.clone().sub(tailPos);
-      const len = streakDir.length();
-
-      mesh.position.copy(center);
-      mesh.lookAt(cam.position);
-
-      const right = new THREE.Vector3().crossVectors(streakDir.normalize(), cam.getWorldDirection(new THREE.Vector3())).normalize();
-      const m = new THREE.Matrix4();
-      const up = new THREE.Vector3().crossVectors(right, streakDir.clone().normalize()).normalize();
-      m.makeBasis(streakDir.clone().normalize().multiplyScalar(len), up.multiplyScalar(0.08), right);
-      m.setPosition(center);
+      cam.getWorldDirection(camDir);
+      right.crossVectors(dir, camDir).normalize();
+      up.crossVectors(right, dir).normalize().multiplyScalar(0.08);
+      matrix.makeBasis(dir.multiplyScalar(len), up, right);
+      matrix.setPosition(center);
       mesh.matrixAutoUpdate = false;
-      mesh.matrix.copy(m);
+      mesh.matrix.copy(matrix);
 
       const maxTravel = 90;
       const fadeIn = Math.min(s.progress / 5, 1);

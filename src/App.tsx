@@ -16,6 +16,12 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [handleEsc]);
 
+  // The camera flies away from whatever was hovered without a pointer-out
+  // event firing, so reset the cursor whenever focus changes.
+  useEffect(() => {
+    document.body.style.cursor = 'default';
+  }, [focusTarget]);
+
   return (
     <div className="app">
       <header className="hud-header">
